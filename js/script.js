@@ -5,9 +5,9 @@ function popUp() {
 
 window.addEventListener("load", (event) => {
   var i = 0;
-  var txt = "Happy Birthday Vonny!";
+  var txt = "Happy Birthday Vonny! :)";
   var speed = 250;
-
+  
   function typeWriter() {
     if (i < txt.length) {
       document.getElementById("hbd").innerHTML += txt.charAt(i);
@@ -24,7 +24,7 @@ window.addEventListener("load", (event) => {
 
     if (hrs > 12) {
     }
-   
+
     if (hrs < 10) {
       hrs = "0" + hrs;
     }
