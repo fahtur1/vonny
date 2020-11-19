@@ -30,12 +30,40 @@
       </ul>
     </div>
 
-    <audio autoplay>
-      <!-- <source src="horse.ogg" type="audio/ogg" /> -->
-      <source src="hbd.mp4" type="audio/mp4" />
-      <!-- Your browser does not support the audio element. -->
+    <audio id="music" autoplay="true">
+      <source src="hbd.mp4" type="audio/mp3" />
     </audio>
+
     <!-- Javascript -->
     <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript">
+      var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      var source = audioCtx.createBufferSource();
+      // var xhr = new XMLHttpRequest();
+      // xhr.open("GET", "hbd.mp4");
+      // xhr.responseType = "arraybuffer";
+      // xhr.addEventListener("load", function (r) {
+      //   audioCtx.decodeAudioData(xhr.response, function (buffer) {
+      //     source.buffer = buffer;
+      //     source.connect(audioCtx.destination);
+      //     source.loop = false;
+      //   });
+      //   source.start(0);
+      // });
+      // xhr.send();
+
+      fetch("hbd.mp4")
+        .then((response) => response.arrayBuffer())
+        .then((res) =>
+          addEventListener("load", function (r) {
+            audioCtx.decodeAudioData(res, function (buffer) {
+              source.buffer = buffer;
+              source.connect(audioCtx.destination)
+              source.loop = false;
+            });
+            source.start(0);
+          })
+        );
+    </script>
   </body>
 </html>
