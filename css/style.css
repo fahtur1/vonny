@@ -23,13 +23,11 @@ body {
 
 @keyframes change-background {
   0% {
-    background-color: white;
-  }
-  50% {
+    background: white;
 
   }
   100% {
-    background-color: #D8335B;
+    background: rgba(233,116,173,1);
   }
 }
 
@@ -43,9 +41,16 @@ body {
 }
 
 #hbd {
-  font-family: "Ubuntu", sans-serif;
   animation: change-font 4s ease-out;
+}
+
+#hbd, .quotes {
+  font-family: "Ubuntu", sans-serif;
   animation-fill-mode: forwards;
+}
+.quotes {
+  color: white;
+  margin-top: 10px;
 }
 
 #clock {
@@ -132,6 +137,7 @@ body {
   height: 100px;
   animation-delay: 3.5s;
 }
+
 @keyframes animate{
   0%{
       transform: translateY(0) rotate(0deg);

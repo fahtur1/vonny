@@ -1,13 +1,8 @@
-function popUp() {
-  var popup = document.getElementById("hbd");
-  popup.classList.toggle("show");
-}
-
 window.addEventListener("load", (event) => {
   var i = 0;
-  var txt = "Happy Birthday Vonny! :)";
+  var txt = "";
   var speed = 250;
-  
+
   function typeWriter() {
     if (i < txt.length) {
       document.getElementById("hbd").innerHTML += txt.charAt(i);
@@ -21,6 +16,16 @@ window.addEventListener("load", (event) => {
     var hrs = time.getHours();
     var min = time.getMinutes();
     var sec = time.getSeconds();
+
+    if (hrs > 18 && hrs <= 24) {
+      txt = "Selamat Malam Aull 🐱";
+    } else if (hrs >= 0 && hrs <= 8) {
+      txt = "Selamat Pagi Aull 🦄";
+    } else if (hrs > 8 && hrs <= 13) {
+      txt = "Selamat Siang Aull 🦁";
+    } else if (hrs > 13 && hrs <= 18) {
+      txt = "Selamat Sore Aull ✨";
+    }
 
     if (hrs > 12) {
     }
@@ -40,6 +45,7 @@ window.addEventListener("load", (event) => {
     document.getElementById("clock").innerHTML = hrs + ":" + min + ":" + sec;
   }
 
-  typeWriter();
+
   setInterval(displayclock, 500);
+  setTimeout(typeWriter, 3500);
 });
